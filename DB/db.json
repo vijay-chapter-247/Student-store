@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "first_name": "Vijay",
+      "last_name": "Vishwakarma",
+      "email": "vijay@gmail.com",
+      "phoneNumber": "9630258741",
+      "password": "Vijay@123",
+      "id": 1
+    },
+    {
+      "first_name": "Ajay",
+      "last_name": "Vishwakarma",
+      "email": "ajay@gmail.com",
+      "phoneNumber": "8815905553",
+      "password": "Ajay@123",
+      "id": 2
+    },
+    {
+      "first_name": "Rohit",
+      "last_name": "Sharma",
+      "email": "rohit@gmail.com",
+      "phoneNumber": "8787878787",
+      "password": "Rohit@123",
+      "id": 3
+    },
+    {
+      "first_name": "Nilesh",
+      "last_name": "Khandvey",
+      "email": "nilesh@gmail.com",
+      "phoneNumber": "8585858585",
+      "password": "Nilesh@123",
+      "id": 4
+    },
+    {
+      "first_name": "Rahul",
+      "last_name": "Luhar",
+      "email": "rahul@gmail.com",
+      "phoneNumber": "9569569569",
+      "password": "Rahul@123",
+      "id": 5
+    },
+    {
+      "first_name": "Raj",
+      "last_name": "Apex",
+      "email": "raj@gmail.com",
+      "phoneNumber": "7775885858",
+      "password": "Raj@123",
+      "id": 6
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phoneNumber": null,
+      "password": "",
+      "id": 7
+    },
+    {
+      "first_name": "Ram",
+      "last_name": "Sharma",
+      "email": "ram@gmail.com",
+      "phoneNumber": "6666666666",
+      "password": "Ram@123",
+      "id": 8
+    }
+  ],
+  "Student": [
+    {
+      "name": "Ayansh Vishwakarma",
+      "address": "Indore",
+      "contact": "9876543210",
+      "id": 1
+    },
+    {
+      "name": "Ajay Vishwakarma",
+      "address": "Indore",
+      "contact": "9876543211",
+      "id": 2
+    },
+    {
+      "name": "Hemant Vishwakarma",
+      "address": "Indore",
+      "contact": "9876543212",
+      "id": 3
+    },
+    {
+      "name": "Jitendra Vishwakarma",
+      "address": "Indore",
+      "contact": "9876543213",
+      "id": 4
+    },
+    {
+      "name": "Vijay Vishwakarma",
+      "address": "Indore",
+      "contact": "9876543214",
+      "id": 5
+    },
+    {
+      "name": "Virat Kohli",
+      "address": "Indore",
+      "contact": "9876543215",
+      "id": 6
+    }
+  ]
+}

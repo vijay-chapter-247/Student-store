@@ -5,7 +5,8 @@ const state = {};
 const mutations = {};
 const actions = {
     async login({commit}, payload) {
-        let response = await axios.get(`http://localhost:3000/users?email=${payload.email}&password=${payload.password}`);
+        const response = await axios.get(`http://localhost:3000/users?email=${payload.email}&password=${payload.password}`);
+
 
         if (response.status == 200 && response.data.length > 0) {
             localStorage.setItem('user-info', JSON.stringify(response.data[0]));

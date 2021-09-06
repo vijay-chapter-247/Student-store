@@ -177,13 +177,15 @@ export default {
         async onSubmit() {
             this.$refs.observer.validate();
 
-            this.signup({
+            const data = {
                 first_name: this.first_name,
                 last_name: this.last_name,
                 email: this.email,
                 phoneNumber: this.phoneNumber,
                 password: this.password,
-            })
+            }
+
+            this.signup(data);
             this.clear();
 
         },

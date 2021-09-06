@@ -17,12 +17,12 @@ const mutations = {
 const actions = {
 
     async studentDataList({ commit }) {
-        let response = await axios.get("http://localhost:3000/Student");
+        const response = await axios.get("http://localhost:3000/Student");
         commit('studentDetails', response.data);
     },
 
     async addStudentData({ commit, dispatch }, payload) {
-        let response = await axios.post("http://localhost:3000/Student", payload);
+        const response = await axios.post("http://localhost:3000/Student", payload);
         commit('newStudent', response.data);
 
         if (response.status == 201) {
@@ -31,7 +31,7 @@ const actions = {
     },
 
     async deleteStudent({ commit, dispatch }, payload) {
-        let response = await axios.delete(`http://localhost:3000/Student/${payload}`);
+        const response = await axios.delete(`http://localhost:3000/Student/${payload}`);
         commit('removeStudent', payload);
 
         if (response.status == 200) {

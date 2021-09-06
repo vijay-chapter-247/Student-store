@@ -20,17 +20,29 @@
                                 <v-col cols="12" class="mt-3">
 
                                     <ValidationProvider v-slot="{ errors }" name="Name" rules="required">
-                                        <v-text-field color="success" maxlength="100" v-model="name" :error-messages="errors" label="Enter Name" type="text" :counter="100" required>
+                                        <v-text-field color="success" maxlength="100" v-model="name" :error-messages="errors" label="Student Name" type="text" :counter="100" required>
                                         </v-text-field>
                                     </ValidationProvider>
 
+                                    <ValidationProvider v-slot="{ errors }" name="Class" rules="required">
+                                        <v-select color="success" v-model="classes" :items="classes" :error-messages="errors" label="Student Class" data-vv-name="select" required></v-select>
+                                    </ValidationProvider>
+
+                                    <ValidationProvider v-slot="{ errors }" name="Section" rules="required">
+                                        <v-select color="success" v-model="section" :items="section" :error-messages="errors" label="Student Section" data-vv-name="select" required></v-select>
+                                    </ValidationProvider>
+
+                                    <ValidationProvider v-slot="{ errors }" name="Rating" rules="required">
+                                        <v-select color="success" v-model="rating" :items="items" :error-messages="errors" label="Student Rating" data-vv-name="select" required></v-select>
+                                    </ValidationProvider>
+
                                     <ValidationProvider v-slot="{ errors }" name="Address" rules="required">
-                                        <v-text-field color="success" maxlength="100" v-model="address" :error-messages="errors" label="Enter Address" :counter="100" type="text" required>
+                                        <v-text-field color="success" maxlength="100" v-model="address" :error-messages="errors" label="Student City" :counter="100" type="text" required>
                                         </v-text-field>
                                     </ValidationProvider>
 
                                     <ValidationProvider v-slot="{ errors }" name="Contact" rules="required|digits:10|customPhoneNumber">
-                                        <v-text-field color="success" type="phone" maxlength="10" v-model="contact" :counter="10" :error-messages="errors" label="Enter Contact" required></v-text-field>
+                                        <v-text-field color="success" type="phone" maxlength="10" v-model="contact" :counter="10" :error-messages="errors" label="Student Contact" required></v-text-field>
                                     </ValidationProvider>
 
                                 </v-col>
@@ -48,7 +60,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { required, digits } from "vee-validate/dist/rules";
 import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from "vee-validate";
 import Header from './Header.vue'
@@ -93,7 +104,13 @@ export default {
             user: '',
             name: '',
             address: '',
-            contact: ''
+            contact: '',
+            section: '',
+            rating: '',
+            classes: '',
+            classes: [ '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th','9th', '10th', '11th', '12th' ],
+            section: [ 'A', 'B', 'C', 'D', 'E' ],
+            items: [ '1', '2', '3', '4', '5' ],
         }
     },
     methods: {
@@ -105,8 +122,11 @@ export default {
             // use payload for sending object from Add.vue to studentData.js
             this.addStudentData({
                 name: this.name,
+                classes: this.classes,
+                section: this.section,
+                rating: this.rating,
                 address: this.address,
-                contact: this.contact
+                contact: this.contact,
             });
             this.$router.push({ name: 'Home' });
             this.clear();
@@ -115,6 +135,9 @@ export default {
             this.name = "";
             this.address = "";
             this.contact = "";
+            this.section = "";
+            this.rating = "";
+            this.classes = "";
             this.$refs.observer.reset();
         },
     },
@@ -128,3 +151,5 @@ export default {
     }
 }
 </script>
+
+

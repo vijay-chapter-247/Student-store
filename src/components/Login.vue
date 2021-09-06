@@ -83,11 +83,13 @@ export default {
         async onSubmit() {
             this.$refs.observer.validate();
 
-            this.login({
+            const data = {
                 email: this.email,
                 password: this.password
-            })
-            
+            }
+
+            this.login(data);
+
             this.clear();
         },
         clear() {

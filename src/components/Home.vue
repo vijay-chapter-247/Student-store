@@ -11,6 +11,10 @@
             <v-btn icon outlined color="success" @click="deleteStudent(item.id)">
                 <v-icon>mdi-delete</v-icon>
             </v-btn>
+            <!-- <span class="mx-1"></span>
+            <v-btn icon outlined color="success" :to="`student-info/${item.id}`">
+                <v-icon>mdi-slack</v-icon>
+            </v-btn> -->
         </template>
         <template v-slot:item.image="{item}">
             <v-avatar size="40" tile color="success" class="my-sm-3">

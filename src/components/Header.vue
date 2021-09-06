@@ -4,6 +4,7 @@
     <v-toolbar-title>
         <v-btn tile text color="white" class="mr-2" to="/"> Home </v-btn>
         <v-btn tile text color="white" class="mx-2" to="/add"> Add Student </v-btn>
+        <v-btn tile text color="white" class="mx-2" to="/student-info"> All Students </v-btn>
         <v-btn tile text color="white" class="mx-2" @click="logout"> Logout </v-btn>
     </v-toolbar-title>
 </v-toolbar>

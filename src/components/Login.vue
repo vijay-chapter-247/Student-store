@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapActions } from 'vuex'
 import { required, email } from "vee-validate/dist/rules";
 import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from "vee-validate";

@@ -1,7 +1,7 @@
 <template>
 <div>
     <Header />
-    <h1 class="text-center my-8 success--text">Hello {{ `${user.toUpperCase()}` }}, Welcome on Add page.</h1>
+    <h1 class="text-center my-8 success--text">Hello {{ `${user.toUpperCase()}` }}, Welcome on Update page.</h1>
 
     <v-row justify="center">
         <v-col cols="12" md="6" sm="8">
@@ -9,7 +9,7 @@
                 <div class="d-flex grow flex-wrap">
                     <div class="v-card--material__heading mb-n5 elevation-6 success pa-5 rounded-lg" style="width: 100%">
                         <div class="text-h4 text-center white--text font-weight-bold">
-                            Add Student
+                            Update Student
                         </div>
                     </div>
                 </div>
@@ -66,9 +66,8 @@
                                     </ValidationProvider>
                                 </v-col>
 
-                                <!-- </v-col> -->
                                 <v-col cols="12">
-                                    <v-btn color="success" outlined block type="submit">Add New Student </v-btn>
+                                    <v-btn color="success" outlined block type="submit">Update Student</v-btn>
                                 </v-col>
                             </v-row>
                         </v-form>
@@ -81,6 +80,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { required, digits } from "vee-validate/dist/rules";
 import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from "vee-validate";
 import Header from './Header.vue'
@@ -123,71 +123,74 @@ export default {
     data() {
         return {
             user: '',
-            name: '',
-            address: '',
-            contact: '',
-            studentClass: '',
-            radioGroup: 'boy',
-            classes: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
-            studentSection: '',
-            section: ['A', 'B', 'C', 'D', 'E'],
-            rating: '',
-            items: ['1', '2', '3', '4', '5'],
-            city: [
-                'Indore',
-                'Bhopal',
-                'Jabalpur',
-                'Gwalior',
-                'Ujjain',
-                'Sagar',
-                'Dewas',
-                'Satna',
-                'Ratlam',
-                'Rewa',
-                'Murwara',
-                'Singrauli',
-                'Burhanpur',
-                'Khandwa',
-                'Bhind',
-                'Chhindwara',
-                'Guna',
-                'Shivpuri',
-                'Vidisha',
-                'Chhatarpur',
-                'Damoh',
-                'Mandsaur',
-                'Khargone',
-                'Neemuch',
-                'Pithampur',
-                'Narmadapuram',
-                'Itarsi',
-                'Sehore',
-                'Morena',
-                'Betul',
-                'Seoni',
-                'Datia',
-                'Nagda',
-                'Dindori',
-            ]
+            student: {
+                name: '',
+                address: '',
+                contact: '',
+                studentClass: '',
+                radioGroup: 'boy',
+                classes: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
+                studentSection: '',
+                section: ['A', 'B', 'C', 'D', 'E'],
+                rating: '',
+                items: ['1', '2', '3', '4', '5'],
+                city: [
+                    'Indore',
+                    'Bhopal',
+                    'Jabalpur',
+                    'Gwalior',
+                    'Ujjain',
+                    'Sagar',
+                    'Dewas',
+                    'Satna',
+                    'Ratlam',
+                    'Rewa',
+                    'Murwara',
+                    'Singrauli',
+                    'Burhanpur',
+                    'Khandwa',
+                    'Bhind',
+                    'Chhindwara',
+                    'Guna',
+                    'Shivpuri',
+                    'Vidisha',
+                    'Chhatarpur',
+                    'Damoh',
+                    'Mandsaur',
+                    'Khargone',
+                    'Neemuch',
+                    'Pithampur',
+                    'Narmadapuram',
+                    'Itarsi',
+                    'Sehore',
+                    'Morena',
+                    'Betul',
+                    'Seoni',
+                    'Datia',
+                    'Nagda',
+                    'Dindori',
+                ]
+            }
+
         }
     },
     methods: {
-        ...mapActions(['addStudentData']),
 
-        onSubmit() {
+        ...mapActions(['updateStudent']),
+
+        async onSubmit() {
             this.$refs.observer.validate();
 
-            // use payload for sending object from Add.vue to studentData.js
-            this.addStudentData({
-                name: this.name,
-                gender: this.radioGroup,
-                class: this.studentClass,
-                section: this.studentSection,
-                rating: this.rating,
-                address: this.address,
-                contact: this.contact,
+            this.updateStudent({
+                name: this.student.name,
+                gender: this.student.radioGroup,
+                class: this.student.studentClass,
+                section: this.student.studentSection,
+                rating: this.student.rating,
+                address: this.student.address,
+                contact: this.student.contact,
             });
-            this.$router.push({ name: 'Home' });
+
             this.clear();
         },
         clear() {
@@ -200,7 +203,12 @@ export default {
             this.$refs.observer.reset();
         },
     },
-    mounted() {
+    async mounted() {
+
+        const response = await axios.get("http://localhost:3000/student/" + this.$route.params.id);
+
+        this.student = response.data;
+
         if (!(localStorage.getItem('user-info'))) {
             this.$router.push({ name: 'Signup' })
         } else {
@@ -210,3 +218,6 @@ export default {
     }
 }
 </script>
+
+
+

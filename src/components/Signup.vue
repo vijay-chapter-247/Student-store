@@ -16,38 +16,38 @@
                             <v-row>
                                 <v-col cols="12" sm="12" md="6">
                                     <ValidationProvider v-slot="{ errors }" name="First name" rules="required|alpha|max:15">
-                                        <v-text-field color="success" maxlength="20" v-model="first_name" :error-messages="errors" label="First Name" :counter="20" type="text" required>
+                                        <v-text-field color="success" maxlength="20" v-model.trim="first_name" :error-messages="errors" label="First Name" :counter="20" type="text" required>
                                         </v-text-field>
                                     </ValidationProvider>
                                 </v-col>
 
                                 <v-col cols="12" sm="12" md="6">
                                     <ValidationProvider v-slot="{ errors }" name="Last name" rules="required|alpha|max:20">
-                                        <v-text-field color="success" maxlength="20" v-model="last_name" :error-messages="errors" label="Last Name" :counter="20" type="text" required>
+                                        <v-text-field color="success" maxlength="20" v-model.trim="last_name" :error-messages="errors" label="Last Name" :counter="20" type="text" required>
                                         </v-text-field>
                                     </ValidationProvider>
                                 </v-col>
 
                                 <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="Phone number" rules="required|digits:10|customPhoneNumber">
-                                        <v-text-field color="success" type="phone" maxlength="10" v-model="phoneNumber" :counter="10" :error-messages="errors" label="Phone Number" required></v-text-field>
+                                        <v-text-field color="success" type="phone" maxlength="10" v-model.trim="phoneNumber" :counter="10" :error-messages="errors" label="Phone Number" required></v-text-field>
                                     </ValidationProvider>
                                 </v-col>
                                 <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="Email" rules="required|email">
-                                        <v-text-field color="success" v-model="email" :error-messages="errors" label="Email" type="email" required>
+                                        <v-text-field color="success" v-model.trim="email" :error-messages="errors" label="Email" type="email" required>
                                         </v-text-field>
                                     </ValidationProvider>
                                 </v-col>
                                 <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="password" rules="required|customPassword">
-                                        <v-text-field color="success" maxlength="20" v-model="password" :error-messages="errors" label="Password" :counter="20" :type="showPassword ? 'text' : 'password'" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" @click:append="showPassword = !showPassword" required>
+                                        <v-text-field color="success" maxlength="20" v-model.trim="password" :error-messages="errors" label="Password" :counter="20" :type="showPassword ? 'text' : 'password'" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" @click:append="showPassword = !showPassword" required>
                                         </v-text-field>
                                     </ValidationProvider>
                                 </v-col>
                                 <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="confirmPassword" rules="required|customConfirmPassword:@password">
-                                        <v-text-field color="success" maxlength="20" label="Confirm Password" v-model="password_confirmation" :error-messages="errors" :counter="20" :type="showConfirmPassword ? 'text' : 'password'" :append-icon="
+                                        <v-text-field color="success" maxlength="20" label="Confirm Password" v-model.trim="password_confirmation" :error-messages="errors" :counter="20" :type="showConfirmPassword ? 'text' : 'password'" :append-icon="
                           showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'" @click:append="showConfirmPassword = !showConfirmPassword" required></v-text-field>
                                     </ValidationProvider>
                                 </v-col>

@@ -7,6 +7,7 @@ import Add from '../components/Add.vue'
 import Update from '../components/Update.vue'
 import UpdateAll from '../components/UpdateAll.vue'
 import StudentInfo from '../components/StudentInfo.vue'
+import NotFound from '../components/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
   },
 ]
 

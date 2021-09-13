@@ -11,3 +11,9 @@ export default {
     name: 'App',
 };
 </script>
+
+<style>
+/* html, img, .any-image-element {
+    filter: invert(1);
+} */
+</style>

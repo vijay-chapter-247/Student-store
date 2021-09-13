@@ -14,7 +14,7 @@
                 <v-hover v-slot="{ hover }" open-delay="200">
                     <v-card flat class="text-center rounded-md pa-3" style="border: 1px solid #4caf51" :elevation="hover ? 8 : 2">
                         <v-avatar size="100" style="border: 1px solid #4caf51">
-                            <img v-if="student.gender === 'Male'" src="./boy.png" class="success lighten-4" />
+                            <img v-if="student.gender === 'boy'" src="./boy.png" class="success lighten-4" />
                             <img v-else src="./girl.png" class="success lighten-4" />
                         </v-avatar>
 
@@ -24,9 +24,9 @@
                             <div>Class - {{ student.class }} ({{ student.section }}) </div>
                             <div>City - {{ student.address }}</div>
                             <div>Contact - {{ student.contact }}</div>
-                            <div>
+                            <!-- <div>
                                 <v-rating v-model="student.rating" background-color="green lighten-2" color="green" readonly length="5" size="20"></v-rating>
-                            </div>
+                            </div> -->
                         </v-card-text>
 
                         <v-card-actions>
@@ -56,7 +56,6 @@ export default {
     data() {
         return {
             user: '',
-            // rating: '5'
         }
     },
     computed: {

@@ -48,13 +48,13 @@
                                     </ValidationProvider>
                                 </v-col>
 
-                                <v-col cols="12" md="6">
+                                <!-- <v-col cols="12" md="6">
                                     <ValidationProvider v-slot="{ errors }" name="Rating" rules="required">
                                         <v-select color="success" v-model.trim="rating" :items="items" :error-messages="errors" label="Student Rating" data-vv-name="select" required></v-select>
                                     </ValidationProvider>
-                                </v-col>
+                                </v-col> -->
 
-                                <v-col cols="12" md="6">
+                                <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="Address" rules="required">
                                         <v-autocomplete color="success" auto-select-first v-model.trim="address" :items="city" :error-messages="errors" label="Student City"></v-autocomplete>
                                     </ValidationProvider>
@@ -131,8 +131,8 @@ export default {
             classes: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
             studentSection: '',
             section: ['A', 'B', 'C', 'D', 'E'],
-            rating: '',
-            items: ['1', '2', '3', '4', '5'],
+            // rating: '',
+            // items: ['1', '2', '3', '4', '5'],
             city: [
                 'Indore',
                 'Bhopal',
@@ -183,7 +183,7 @@ export default {
                 gender: this.radioGroup,
                 class: this.studentClass,
                 section: this.studentSection,
-                rating: this.rating,
+                // rating: this.rating,
                 address: this.address,
                 contact: this.contact,
             });
@@ -195,7 +195,7 @@ export default {
             this.address = "";
             this.contact = "";
             this.studentSection = "";
-            this.rating = "";
+            // this.rating = "";
             this.studentClass = "";
             this.$refs.observer.reset();
         },

@@ -19,16 +19,14 @@
                             <v-row>
                                 <v-col cols="12" class="mt-3">
                                     <ValidationProvider v-slot="{ errors }" name="Name" rules="required">
-                                        <v-text-field color="success" maxlength="100" v-model.trim="name" :error-messages="errors" label="Student Name" type="text" :counter="100" required>
+                                        <v-text-field color="success" maxlength="100" v-model.trim="student.name" :error-messages="errors" label="Student Name" type="text" :counter="100" required>
                                         </v-text-field>
                                     </ValidationProvider>
 
                                 </v-col>
 
-                                <!-- <v-radio label="success" color="success" value="success"></v-radio> -->
-
                                 <v-col cols="12" class="my-n5">
-                                    <v-radio-group v-model="radioGroup" row>
+                                    <v-radio-group v-model="student.gender" row>
                                         <v-radio label="Male" color="success" value="boy"></v-radio>
                                         <v-radio label="Female" color="success" value="girl"></v-radio>
                                         <v-radio label="Other" color="success" value="other"></v-radio>
@@ -38,31 +36,31 @@
                                 <v-col cols="12" md="6">
 
                                     <ValidationProvider v-slot="{ errors }" name="Class" rules="required">
-                                        <v-select color="success" v-model.trim="studentClass" :items="classes" :error-messages="errors" label="Student Class" data-vv-name="select" required></v-select>
+                                        <v-select color="success" v-model.trim="student.class" :items="classes" :error-messages="errors" label="Student Class" data-vv-name="select" required></v-select>
                                     </ValidationProvider>
                                 </v-col>
 
                                 <v-col cols="12" md="6">
                                     <ValidationProvider v-slot="{ errors }" name="Section" rules="required">
-                                        <v-select color="success" v-model.trim="studentSection" :items="section" :error-messages="errors" label="Student Section" data-vv-name="select" required></v-select>
+                                        <v-select color="success" v-model.trim="student.section" :items="section" :error-messages="errors" label="Student Section" data-vv-name="select" required></v-select>
                                     </ValidationProvider>
                                 </v-col>
 
-                                <v-col cols="12" md="6">
+                                <!-- <v-col cols="12" md="6">
                                     <ValidationProvider v-slot="{ errors }" name="Rating" rules="required">
-                                        <v-select color="success" v-model.trim="rating" :items="items" :error-messages="errors" label="Student Rating" data-vv-name="select" required></v-select>
+                                        <v-select color="success" v-model.trim="student.rating" :items="student.items" :error-messages="errors" label="Student Rating" data-vv-name="select" required></v-select>
                                     </ValidationProvider>
-                                </v-col>
+                                </v-col> -->
 
-                                <v-col cols="12" md="6">
+                                <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="Address" rules="required">
-                                        <v-autocomplete color="success" auto-select-first v-model.trim="address" :items="city" :error-messages="errors" label="Student City"></v-autocomplete>
+                                        <v-autocomplete color="success" auto-select-first v-model.trim="student.address" :items="city" :error-messages="errors" label="Student City"></v-autocomplete>
                                     </ValidationProvider>
                                 </v-col>
 
                                 <v-col cols="12">
                                     <ValidationProvider v-slot="{ errors }" name="Contact" rules="required|digits:10|customPhoneNumber">
-                                        <v-text-field color="success" type="phone" maxlength="10" v-model.trim="contact" :counter="10" :error-messages="errors" label="Student Contact" required></v-text-field>
+                                        <v-text-field color="success" type="phone" maxlength="10" v-model.trim="student.contact" :counter="10" :error-messages="errors" label="Student Contact" required></v-text-field>
                                     </ValidationProvider>
                                 </v-col>
 
@@ -123,70 +121,35 @@ export default {
     data() {
         return {
             user: '',
+            classes: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
+            section: ['A', 'B', 'C', 'D', 'E'],
+            // items: [ 1, 2, 3, 4, 5 ],
+            city: ['Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar', 'Dewas', 'Satna', 'Ratlam', 'Rewa', 'Murwara', 'Singrauli', 'Burhanpur', 'Khandwa', 'Bhind', 'Chhindwara', 'Guna', 'Shivpuri', 'Vidisha', 'Chhatarpur', 'Damoh', 'Mandsaur', 'Khargone', 'Neemuch', 'Pithampur', 'Narmadapuram', 'Itarsi', 'Sehore', 'Morena', 'Betul', 'Seoni', 'Datia', 'Nagda', 'Dindori'],
             student: {
                 name: '',
+                gender: 'boy',
+                class: '',
+                section: '',
+                // rating: '',
                 address: '',
                 contact: '',
-                studentClass: '',
-                radioGroup: 'boy',
-                classes: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
-                studentSection: '',
-                section: ['A', 'B', 'C', 'D', 'E'],
-                rating: '',
-                items: ['1', '2', '3', '4', '5'],
-                city: [
-                    'Indore',
-                    'Bhopal',
-                    'Jabalpur',
-                    'Gwalior',
-                    'Ujjain',
-                    'Sagar',
-                    'Dewas',
-                    'Satna',
-                    'Ratlam',
-                    'Rewa',
-                    'Murwara',
-                    'Singrauli',
-                    'Burhanpur',
-                    'Khandwa',
-                    'Bhind',
-                    'Chhindwara',
-                    'Guna',
-                    'Shivpuri',
-                    'Vidisha',
-                    'Chhatarpur',
-                    'Damoh',
-                    'Mandsaur',
-                    'Khargone',
-                    'Neemuch',
-                    'Pithampur',
-                    'Narmadapuram',
-                    'Itarsi',
-                    'Sehore',
-                    'Morena',
-                    'Betul',
-                    'Seoni',
-                    'Datia',
-                    'Nagda',
-                    'Dindori',
-                ]
             }
 
         }
     },
     methods: {
 
-        ...mapActions(['updateStudent']),
+        ...mapActions(['updateAllStudent']),
 
         async onSubmit() {
             this.$refs.observer.validate();
 
-            this.updateStudent({
+            this.updateAllStudent({
                 name: this.student.name,
-                gender: this.student.radioGroup,
-                class: this.student.studentClass,
-                section: this.student.studentSection,
-                rating: this.student.rating,
+                gender: this.student.gender,
+                class: this.student.class,
+                section: this.student.section,
+                // rating: this.student.rating,
                 address: this.student.address,
                 contact: this.student.contact,
             });
@@ -194,12 +157,12 @@ export default {
             this.clear();
         },
         clear() {
-            this.name = "";
-            this.address = "";
-            this.contact = "";
-            this.studentSection = "";
-            this.rating = "";
-            this.studentClass = "";
+            this.student.name = "";
+            this.student.address = "";
+            this.student.contact = "";
+            this.student.section = "";
+            // this.student.rating = "";
+            this.student.class = "";
             this.$refs.observer.reset();
         },
     },
@@ -218,6 +181,3 @@ export default {
     }
 }
 </script>
-
-
-
